@@ -15,7 +15,6 @@ module.exports = (grunt) ->
       client:
         files:
           src: 'client/**/*.js'
-
       options:
         quotmark: 'single'
         bitwise: true
@@ -37,6 +36,13 @@ module.exports = (grunt) ->
         maxlen: 100
         globals: {}
 
+    karma:
+      adapter:
+        configFile: 'karma.conf.js'
+        autoWatch: false
+        singleRun: true
+        reporters: ['dots']
+
     'npm-contributors':
       options:
         commitMessage: 'chore: update contributors'
@@ -47,6 +53,7 @@ module.exports = (grunt) ->
         pushTo: 'upstream'
 
   grunt.loadNpmTasks 'grunt-contrib-jshint'
+  grunt.loadNpmTasks 'grunt-karma'
   grunt.loadNpmTasks 'grunt-bump'
   grunt.loadNpmTasks 'grunt-npm'
   grunt.loadNpmTasks 'grunt-auto-release'
